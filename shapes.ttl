@@ -1,0 +1,28 @@
+PREFIX ex: <http://example.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# check that dogs, breeds, and countries all have appropriate labels
+ex:LabelShape a sh:NodeShape ;
+  sh:targetClass ex:Dog , ex:Breed , ex:Country ;
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path rdfs:label ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    # sh:pattern "^[A-Z][^ ]*( [A-Z][^ ]*)*$" ; # every word capitalized
+  ]
+  .
+
+ex:DogShape a sh:NodeShape ;
+  sh:targetClass ex:Dog ;
+  # sh:property ex:DogMotherShape ;
+  # sh:closed true^^xsd:boolean ;
+  # sh:ignoredProperties ( rdf:type ) ;
+  .
+
+ex:DogMotherShape a sh:PropertyShape ;
+  sh:path ex:mother ;
+  sh:class ex:Dog ;
+  .
