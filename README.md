@@ -1,8 +1,8 @@
-# shacl
+# SHACL
 
 To validate [`data.ttl`](data.ttl) using [`shapes.ttl`](shapes.ttl):
 
-```
+```text
 make validate
 ```
 

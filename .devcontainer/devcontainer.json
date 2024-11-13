@@ -1,0 +1,13 @@
+{
+    "name": "Java",
+    "image": "mcr.microsoft.com/devcontainers/java",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "rdfox.rdfox-rdf"
+            ]
+        }
+    }
+}
